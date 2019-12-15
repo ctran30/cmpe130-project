@@ -26,6 +26,9 @@ private:
 	int tasks;
 	int nextTask;
 	int maxSize;
+	string taskName;
+	string dueDate;
+	int priority;
 };
 
 
