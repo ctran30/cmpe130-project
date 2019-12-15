@@ -9,7 +9,7 @@ int main() {
 	char exit = 'n';
 	int choice = 0;
 
-	while(exit = 'n')
+	while(exit == 'n')
 	{
 		cout << "Welcome to QuickTask: Easy To-Do List!" <<endl;
 		cout <<"Choose an option: " <<endl;
