@@ -4,8 +4,11 @@ ToDoList::ToDoList()
 {
 	maxSize = 100;
 	tasks = 0;
-	list = new myTask[maxSize];
+	list = new ToDoList[maxSize];
 	nextTask = 0;
+	taskName = "";
+	dueDate = "";
+	priority = 0;
 
 }
 
