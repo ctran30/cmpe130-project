@@ -5,21 +5,12 @@ ToDoList::ToDoList()
 {
 	maxSize = 100;
 	tasks = 0;
-	list = new myTask[maxSize];
+	list = new ToDoList[maxSize];
 	nextTask = 0;
+	taskName = 'a';
+	dueDate = '00/00';
+	priority = 0;
 
-}
-
-bool ToDoList::addToList(struct myTask task)
-{
-	if(tasks == maxSize)
-	{
-		return false;
-	}
-	else{
-		list[tasks++] = task;
-	}
-	return true;
 }
 
 bool ToDoList::addToList(string name, string date, int p)
@@ -35,29 +26,16 @@ bool ToDoList::addToList(string name, string date, int p)
 	return true;
 }
 
-bool ToDoList::getNextTask(struct myTask &task)
+
+void ToDoList::getNextTask(ToDoList *list)
 {
+	string name, date;
+	int p;
 	if(tasks == 0)
 	{
-		return false;
+		cout << "There are no tasks!" <<endl;
 	}
 
-	if(nextTask == maxSize)
-	{
-		nextTask = 0;
-		task = list[nextTask];
-		nextTask++;
-	}
-	return true;
-}
-
-bool ToDoList::getNextTask(string &name, string &date, int &p)
-{
-	if(tasks == 0)
-	{
-		return false;
-	}
-	
 	if(nextTask == maxSize)
 	{
 		nextTask = 0;
@@ -66,13 +44,25 @@ bool ToDoList::getNextTask(string &name, string &date, int &p)
 		p = list[nextTask].priority;
 		nextTask++;
 	}
-	return true;
+	print(name, date, p);
+
 }
 
+void ToDoList::print(string name, string date, int p)
+{
+	cout << "Task: " << name <<endl;
+	cout << "Date: " << date <<endl;
+	cout << "Priority: " << p <<endl;
+}
 
 void ToDoList::printList()
 {
-
+	for(int i = 0; i < maxSize; i++)
+	{
+		cout << "Task: " << list[i].taskName <<endl;
+		cout << "Date: " << list[i].dueDate <<endl;
+		cout << "Priority: " << list[i].priority <<endl;
+	}
 
 
 
