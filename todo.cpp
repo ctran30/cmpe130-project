@@ -30,7 +30,7 @@ bool ToDoList::addToList(string name, string date, int p)
 void ToDoList::getNextTask(ToDoList *list)
 {
 	string name, date;
-	int p;
+	int p = 0;
 	if(tasks == 0)
 	{
 		cout << "There are no tasks!" <<endl;
@@ -45,6 +45,24 @@ void ToDoList::getNextTask(ToDoList *list)
 		nextTask++;
 	}
 	print(name, date, p);
+
+}
+
+int ToDoList::search(string name) {
+	int i = 0;
+	string target;
+	if (tasks == 0) {
+		cout << "There are no tasks!" << endl;
+	}
+	else {
+		while (true) {
+			if (list[i].taskName == name) {
+				return i;
+			}
+			i++;
+		}
+	}
+	return 0;
 
 }
 
